@@ -1,0 +1,31 @@
+<div class="cart-item">
+    <div class="cart-item-details">
+        <img [routerLink]="item.id" class="product-image" [src]="item?.url" alt="" />
+        <div [routerLink]="item.id" class="ditel">
+            <div class="one-item">{{item.name}}</div>
+            <div class="one-item">{{item.price}} $</div>
+        </div>
+        <div class="btn-cart">
+            <form class="form-margin">
+                <!-- <input list="howMany"  id="howMany" class="number-input"    type="number" required /> -->
+                <!-- <datalist  class="number-input" for="howMany" name="howMany"  > -->
+                <select class="number-input" #teams (change)="onSelected(teams.value)">
+                    <option default value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                <!-- </datalist> -->
+                </select>
+            </form>
+            <div class="one-item">
+                <button class="add-to-cart" (click)="addToCart({howMany:teams.value,product:item})">add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+
+<div class="cart-container">
+    <div *ngIf="items.length > 0">
+        <div class="cart-item"  *ngFor="let item of items">
+            <img [src]="item?.product?.url"/>
+            <div class="cart-item-details">
+                <h1>{{item?.product?.name}}</h1>
+                <div><span>$ {{item.product.price}}</span></div>
+                <form class="form-margin" >
+                    <label>amount:</label>
+                    <input class="number-input" [value]="item.howMany" type="number" />
+                </form>
+            </div> 
+        </div>
+        <div>
+            <h1>
+                <span>Toatal : $ {{totalPrice}}</span>
+            </h1>
+        </div>
+    </div>
+    <div *ngIf="items.length <= 0">
+        you dosen't add any thing yet
+        <br/>
+        <br/>
+        <a routerLink="/product-list">go to list</a>
+    </div>
+    <div class="cart-panel">
+        <form #myForm='ngForm' (ngSubmit)="onSubmit(myForm.value)" >
+            <div>
+                <div>
+                    <label for="fullName">full name</label>
+                </div>
+                <input name="fullName" id="fullName" type="text" required ngModel  #fullName="ngModel" />
+            </div>
+            <br/>
+            <div class="err" *ngIf="fullName.errors?.['required']">*Email is required*</div>
+            <div>
+                <div>
+                    <label for="address">address</label>
+                </div>
+                <input id="address" name="address" type="text" required ngModel  #address="ngModel" />
+            </div>
+            <br/>
+            <div class="err" *ngIf="address.errors?.['required']">*Email is address*</div>
+            <div>
+                <div>
+                    <label for="credutCard">credut card number</label>
+                </div>
+                <input name="credutCard" id="cerdutCard" type="number" ngModel  #credutCard="ngModel" required  />
+            </div>
+            <br/>
+            <div class="err" *ngIf="credutCard.errors?.['required']">*Email is cerdut Card*</div>
+            <div>
+                <button type="submit" >pay</button>
+            </div>
+        </form>
+    </div>
+</div>
