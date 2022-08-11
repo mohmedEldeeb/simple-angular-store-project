@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { productCart } from '../interface/prodect-cart';
 import { DataService } from '../serves/data.service';
@@ -13,6 +13,11 @@ export class ProductItemComponent implements OnInit {
   allItemInCart:any
   itemAddToCart:[]
   @Input() item:any
+  @Output() newDatas =new EventEmitter<any>(); 
+  onyouNeedToSendingData(data:any){
+    this.newDatas.emit(data)
+  }
+  // why you wont my use @output i don't need share data from cahild to parent
   constructor(private router:Router,private data:DataService) {
     this.itemAddToCart=[],
     this.allItemInCart=[]

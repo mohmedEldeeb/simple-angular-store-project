@@ -31,7 +31,7 @@
                 <div>
                     <label for="fullName">full name</label>
                 </div>
-                <input name="fullName" minlength="10" id="fullName" type="text" required ngModel  #fullName="ngModel" />
+                <input name="fullName" minlength="10" id="fullName" type="text" required ngModel  #fullName="ngModel" (ngModelChange)="validateName($event)" />
             </div>
             <div class="err" *ngIf="fullName.errors?.['required']">*Email is required*</div>
             <div class="err" *ngIf="fullName.errors?.['minlength']" 
@@ -41,7 +41,7 @@
                 <div>
                     <label for="address">address</label>
                 </div>
-                <input id="address" minlength="6" name="address" type="text" required ngModel  #address="ngModel" />
+                <input id="address" minlength="6" name="address" type="text" required ngModel  #address="ngModel" (ngModelChange)="validateAddress($event)" />
                 <div class="err" *ngIf="address.errors?.['required']">*address is required*</div>
                 <div class="err" *ngIf="address.errors?.['minlength']" 
                 >*Name minlength is {{address.errors?.['minlength'].requiredLength}}*</div>
@@ -51,7 +51,7 @@
                 <div>
                     <label for="credutCard">credut card number</label>
                 </div>
-                <input name="credutCard" minlength="16" id="cerdutCard" type="number" ngModel  #credutCard="ngModel" required  />
+                <input name="credutCard" minlength="16" id="cerdutCard" type="number" ngModel  #credutCard="ngModel" required (ngModelChange)="validateCredutCard($event)" />
             </div>
             <div class="err" *ngIf="credutCard.errors?.['required']">* cerdut Card is required*</div>
             <div class="err" *ngIf="credutCard.errors?.['minlength']" 

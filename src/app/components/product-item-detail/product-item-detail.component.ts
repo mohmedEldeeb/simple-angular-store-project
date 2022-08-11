@@ -16,10 +16,11 @@ export class ProductItemDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,private http:DataService) { }
 
   addToCart ({howMany,product}:any):void {
+    this.http.addOrUpdeatApprovalData({howMany,product})
     
-    this.allItemInCart.unshift({howMany:parseInt(howMany),product})
-    this.http.updateApprovalData(this.allItemInCart)
-    return alert("product add to cart")
+    // this.allItemInCart.unshift({howMany:parseInt(howMany),product})
+    // this.http.updateApprovalData(this.allItemInCart)
+    // return alert("product add to cart")
 
     // console.log(this.itemAddToCart)
   }

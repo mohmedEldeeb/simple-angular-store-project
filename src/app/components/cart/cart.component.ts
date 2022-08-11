@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { productCart } from '../interface/prodect-cart';
+import { productCart ,Prodrct} from '../interface/prodect-cart';
 import { DataService } from '../serves/data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
   
+  fullName:string=""
   totalPrice:number=0
   items:productCart[]=[]
   show:boolean=false
@@ -31,8 +32,22 @@ export class CartComponent implements OnInit {
 
   }
 
-  deletaItem(item:{}){
+  deletaItem(item:productCart){
     this.data.deletApprovalData(item)
+    this.totalPrice=0
+    this.items.map((x:productCart)=>{
+      this.totalPrice += (x.howMany * x.product.price) 
+    }) 
+    alert(`alrdey you are removed ${item.product.name}`)
+  }
+  validateName(x:any){
+    console.log(x)
+  }
+  validateAddress(x:any){
+    console.log(x)
+  }
+  validateCredutCard(x:any){
+    console.log(x)
   }
   ngOnInit(): void {
     this.data.currentApprovalData.subscribe((data:any)=>{
