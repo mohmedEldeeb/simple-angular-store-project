@@ -4,6 +4,7 @@
         <div class="cart-item"  *ngFor="let item of items">
             <img [src]="item?.product?.url"/>
             <div class="cart-item-details">
+                <div><button class="x" (click)="deletaItem(item)">x</button></div>
                 <h1>{{item?.product?.name}}</h1>
                 <div><span>$ {{item.product.price}}</span></div>
                 <form class="form-margin" >
@@ -25,33 +26,39 @@
         <a routerLink="/product-list">go to list</a>
     </div>
     <div class="cart-panel">
-        <form #myForm='ngForm' (ngSubmit)="onSubmit(myForm.value)" >
+        <form #myForm='ngForm' (ngSubmit)="onSubmit(myForm)" >
             <div>
                 <div>
                     <label for="fullName">full name</label>
                 </div>
-                <input name="fullName" id="fullName" type="text" required ngModel  #fullName="ngModel" />
+                <input name="fullName" minlength="10" id="fullName" type="text" required ngModel  #fullName="ngModel" />
             </div>
-            <br/>
             <div class="err" *ngIf="fullName.errors?.['required']">*Email is required*</div>
+            <div class="err" *ngIf="fullName.errors?.['minlength']" 
+            >*Name minlength is {{fullName.errors?.['minlength'].requiredLength}}*</div>
+            <br/>
             <div>
                 <div>
                     <label for="address">address</label>
                 </div>
-                <input id="address" name="address" type="text" required ngModel  #address="ngModel" />
+                <input id="address" minlength="6" name="address" type="text" required ngModel  #address="ngModel" />
+                <div class="err" *ngIf="address.errors?.['required']">*address is required*</div>
+                <div class="err" *ngIf="address.errors?.['minlength']" 
+                >*Name minlength is {{address.errors?.['minlength'].requiredLength}}*</div>
+                <br/>
             </div>
-            <br/>
-            <div class="err" *ngIf="address.errors?.['required']">*Email is address*</div>
             <div>
                 <div>
                     <label for="credutCard">credut card number</label>
                 </div>
-                <input name="credutCard" id="cerdutCard" type="number" ngModel  #credutCard="ngModel" required  />
+                <input name="credutCard" minlength="16" id="cerdutCard" type="number" ngModel  #credutCard="ngModel" required  />
             </div>
+            <div class="err" *ngIf="credutCard.errors?.['required']">* cerdut Card is required*</div>
+            <div class="err" *ngIf="credutCard.errors?.['minlength']" 
+            >*Name minlength is {{credutCard.errors?.['minlength'].requiredLength}}*</div>
             <br/>
-            <div class="err" *ngIf="credutCard.errors?.['required']">*Email is cerdut Card*</div>
             <div>
-                <button type="submit" >pay</button>
+                <button [disabled]=" !myForm.valid || items.length <= 0" type="submit" >pay</button>
             </div>
         </form>
     </div>

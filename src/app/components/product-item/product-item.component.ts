@@ -19,10 +19,22 @@ export class ProductItemComponent implements OnInit {
    }
 
   addToCart ({howMany,product}:any):void {
+    this.data.addOrUpdeatApprovalData({howMany,product})
+    // let ifProduct =this.allItemInCart.find((x:any)=> x.product===product)
+    // console.log("if",ifProduct)
+    // if(ifProduct){
+    //   let meny = ifProduct.howMany
+    //   let newproduct = this.allItemInCart.filter((x:any)=> x.prodect !== product)
+    //   console.log(newproduct,"filter")
+    //   newproduct.unshift({howMany:parseInt(howMany) + meny,product})
+    //   this.data.updateApprovalData(newproduct)
+
+    // }else {
+
+    //   this.allItemInCart.unshift({howMany:parseInt(howMany),product})
+    //   this.data.updateApprovalData(this.allItemInCart)
+    // }
     
-    this.allItemInCart.unshift({howMany:parseInt(howMany),product})
-    
-    this.data.updateApprovalData(this.allItemInCart)
     alert("product add to cart")
 
     // console.log(this.itemAddToCart)

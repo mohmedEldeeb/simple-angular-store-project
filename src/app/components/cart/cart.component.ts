@@ -24,13 +24,16 @@ export class CartComponent implements OnInit {
       return alert("please add product to cart first")
     }
     this.data.updateApprovalData([])
-    console.log(x);
+    console.log(x.value ,x);
     this.data.setCartDataTotal(this.totalPrice)
 
     this.router.navigateByUrl("/success")
 
   }
 
+  deletaItem(item:{}){
+    this.data.deletApprovalData(item)
+  }
   ngOnInit(): void {
     this.data.currentApprovalData.subscribe((data:any)=>{
       this.items=data
@@ -43,7 +46,7 @@ export class CartComponent implements OnInit {
       }else{
         this.show=false
       }
-      console.log("d",data)
+      // console.log("d",data)
     })
     // console.log(localStorage.getItem("cart"))any
     // console.log(this.items)

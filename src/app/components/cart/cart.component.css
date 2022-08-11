@@ -46,3 +46,8 @@ img {
 .err{
   color: red;
 }
+div > .x{
+  width: 30px;
+  float: right;
+
+}
