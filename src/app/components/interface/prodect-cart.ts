@@ -1,18 +1,18 @@
 export interface productCart {
     howMany:number,
     product:{
-        description?: string,
-        id?: number,
-        name?:string ,
+        description: string,
+        id: number,
+        name:string ,
         price: number,
-        url?: string
+        url: string
     }
 }
 
 export interface Prodrct {
-    description?: string,
-    id?: number,
-    name?:string ,
-    price?: number,
-    url?: string
+    description: string,
+    id: number,
+    name:string ,
+    price: number,
+    url: string
 }
