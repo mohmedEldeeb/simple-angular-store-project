@@ -7,9 +7,7 @@
         </div>
         <div class="btn-cart">
             <form class="form-margin">
-                <!-- <input list="howMany"  id="howMany" class="number-input"    type="number" required /> -->
-                <!-- <datalist  class="number-input" for="howMany" name="howMany"  > -->
-                <select type="number" class="number-input" #teams (change)="onSelected(teams.value)">
+                <select class="number-input" #teams (change)="onSelected(teams.value)">
                     <option default value=1>1</option>
                     <option value=2>2</option>
                     <option value=3>3</option>
@@ -20,7 +18,6 @@
                     <option value=8>8</option>
                     <option value=9>9</option>
                     <option value=10>10</option>
-                <!-- </datalist> -->
                 </select>
             </form>
             <div class="one-item">

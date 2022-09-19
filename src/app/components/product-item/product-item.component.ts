@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { productCart } from '../interface/prodect-cart';
+import {  Router } from '@angular/router';
 import { DataService } from '../serves/data.service';
 import { ShareDataService } from '../serves/share-data.service';
 
@@ -26,35 +25,7 @@ export class ProductItemComponent implements OnInit {
 
    addToCart ({howMany,product}:any) {
     this.ahareData.setData({howMany:Number(howMany),product})
-    // this.data.addOrUpdeatApprovalData({howMany,product})
-    // let ifD=this.allItemInCart.filter((d:productCart)=>{return d.product==product})
-    // let x=this.allItemInCart.filter((d:productCart)=>{return d.product !==product})
-    // console.log(ifD)
-    // if(ifD[0]){
-    //   this.data.addOrUpdeatApprovalData([...x,{howMany:Number(howMany)+Number(ifD.howMany),product}])
-    // }else {
-    //   this.data.addOrUpdeatApprovalData([...x,{howMany,product}])
-    // }
-    // let ifProduct =this.allItemInCart.find((x:any)=> x.product ==product)
-    // console.log("if",ifProduct)
-    // if(ifProduct){
-    //   let meny = ifProduct.howMany
-    //   let newproduct = this.allItemInCart.filter((x:any)=> x.prodect !== product)
-    //   console.log(newproduct,"filter")
-    //   newproduct.unshift({howMany:parseInt(howMany) + meny,product})
-    //   this.data.updateApprovalData(newproduct)
-
-    // }else {
-
-    //   this.allItemInCart.unshift({howMany:parseInt(howMany),product})
-    //   this.data.updateApprovalData(this.allItemInCart)
-    // }
-    // this.data.currentApprovalData.subscribe((data:any)=>{
-    //   this.allItemInCart=data
-    // })
     alert("product add to cart")
-
-    // console.log(this.itemAddToCart)
   }
   handelChdange():void{
 
@@ -63,9 +34,7 @@ export class ProductItemComponent implements OnInit {
     this.howManyProduct=e
   }
   ngOnInit(): void {
-    // this.data.currentApprovalData.subscribe((data:any)=>{
-    //   this.allItemInCart=data
-    // })
+
     this.allItemInCart=this.ahareData.getData()
   }
 

@@ -12,14 +12,11 @@ export class ShareDataService {
     
     let f=  this.data.filter((x:any) => x.product.id === product.id )
     let d=  this.data.filter((x:any)=>   x.product.id !== product.id )
-    console.log("F",f)
-    console.log("d",d)
     if (f[0]){
       this.data=[{howMany:howMany+f[0].howMany ,product:f[0].product},...d]
     }else {
       this.data=[{howMany:howMany ,product},...d]
     }
-   console.log(this.data)
   }
   getData(){
     return this.data
@@ -28,7 +25,6 @@ export class ShareDataService {
     let d =this.data.filter((x:productCart)=>{
       return  x.product.id !== i.product.id
     })
-    console.log("r",d)
     this.data=d
   }
   removeAll(){

@@ -17,14 +17,8 @@ export class ProductItemDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,private http:DataService ,private shareData:ShareDataService) { }
 
   addToCart ({howMany,product}:any):void {
-    // this.http.addOrUpdeatApprovalData({howMany,product})
-    // this.c.setData({howMany,product})
     this.shareData.setData({howMany:parseInt(howMany),product})
-    // this.allItemInCart.unshift({howMany:parseInt(howMany),product})
-    // this.http.updateApprovalData(this.allItemInCart)
      alert("product add to cart")
-
-    // console.log(this.itemAddToCart)
   }
 
   ngOnInit(): void {
